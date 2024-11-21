@@ -1,0 +1,34 @@
+<table class="table">
+    <tr>
+        <!-- 留空，移除“问题”列的标题 -->
+        <th></th>
+        {% for choice in likert_answer_group %}
+            <th>{{ choice.1 }}</th> <!-- 显示 Likert 选项名称 -->
+        {% endfor %}
+    </tr>
+
+    {% for field in form %}
+        <tr>
+            <td>{{ field.label }}</td> <!-- 问题内容 -->
+            {% for choice in field %}
+                <td>
+                    <div class="likert-option">
+                        {{ choice }} <!-- 每个选项的输入框 -->
+                    </div>
+                </td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+</table>
+
+<style>
+    .likert-option {
+        display: flex;
+        flex-direction: column; /* 垂直排列 */
+        align-items: center; /* 水平居中 */
+    }
+
+    .likert-option input[type="radio"] {
+        margin: 5px; /* 圆圈间距 */
+    }
+</style>

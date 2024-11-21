@@ -1,0 +1,20 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+创新竞赛 - 头脑风暴评估
+{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <p>请评估 <b>创意16</b> 的有用性和新颖性：</p>
+    </div>
+
+    {% for row in idea_content %}
+        {{ row }}<br>
+    {% endfor %}    
+
+    {{ include "../my_templates/likert_table.html"}}
+
+    {% next_button %}
+{% endblock %}

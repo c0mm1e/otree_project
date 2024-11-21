@@ -1,0 +1,120 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    预问卷 - 第 {{ current_page }} 页／共 {{ total_pages }} 页
+{% endblock %}
+
+{% block content %}
+ 
+    {{ formfields }}
+
+    <!-- 自定义确认弹窗 -->
+    <div id="confirmationModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <p id="modalText">此页面仍有 <span id="unansweredCount"></span> 个问题未回答，您确定要前往下一页吗？</p>
+            <!-- 使用 oTree 的按钮样式 -->
+            <button class="btn btn-primary" onclick="confirmNavigation()">确认</button>
+            <button class="btn btn-secondary" onclick="closeModal()">取消</button>
+        </div>
+    </div>
+
+    <!-- 修改后的前往下一页按钮，使用 oTree 样式 -->
+    <button class="btn btn-primary" onclick="checkAnswers()">下一页</button>
+
+{% endblock %}
+
+{% block style %}
+<style>
+    /* 使弹窗居中 */
+    .modal {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1000; /* 保证弹窗在其他内容的上方 */
+        background-color: rgba(0, 0, 0, 0.5); /* 背景半透明 */
+        width: 100%; /* 占满整个屏幕的宽度 */
+        height: 100%; /* 占满整个屏幕的高度 */
+    }
+
+    .modal-content {
+        background-color: #fff; /* 弹窗内容的背景色 */
+        padding: 20px;
+        border-radius: 10px; /* 圆角效果 */
+        width: 400px; /* 弹窗内容的宽度 */
+        margin: auto;
+        text-align: center; /* 内容居中对齐 */
+    }
+
+    /* 遮罩效果 */
+    .modal::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* 背景半透明 */
+        z-index: -1; /* 遮罩位于弹窗的下层 */
+    }
+
+    /* 使按钮左右并排 */
+    .modal-content button {
+        margin: 5px;
+    }
+</style>
+{% endblock %}
+
+{% block script %}
+<script>
+    // 检查是否有未回答的问题
+    function checkAnswers() {
+        // 阻止表单的默认提交行为
+        event.preventDefault();
+
+        let unansweredCount = 0;
+        const inputs = document.querySelectorAll('input[type="text"], textarea');
+
+        // 遍历所有输入框，计算未回答的个数
+        inputs.forEach(function(input) {
+            if (input.value.trim() === "") {
+                unansweredCount++;
+            }
+        });
+
+        // 如果有未回答问题，显示弹窗；否则，直接提交表单
+        if (unansweredCount > 0) {
+            document.getElementById("unansweredCount").innerText = unansweredCount;
+            showModal();
+        } else {
+            document.querySelector('form').submit();
+        }
+    }
+
+    // 显示弹窗
+    function showModal() {
+        // 阻止表单的默认提交行为
+        event.preventDefault();
+
+        document.getElementById("confirmationModal").style.display = "block";
+    }
+
+    // 关闭弹窗
+    function closeModal() {
+        // 阻止表单的默认提交行为
+        event.preventDefault();
+        
+        document.getElementById("confirmationModal").style.display = "none";
+    }
+
+    // 确认并前往下一页
+    function confirmNavigation() {
+        // 阻止表单的默认提交行为
+        event.preventDefault();
+        
+        closeModal();  // 关闭弹窗
+        document.querySelector('form').submit();  // 提交表单，前往下一页
+    }
+</script>
+{% endblock %}

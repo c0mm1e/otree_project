@@ -1,0 +1,35 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+创新竞赛 - 创意完善
+{% endblock %}
+
+{% block content %}
+
+    <div class="content">   
+        <p>
+            <a href="{{ai_website}}" target="_blank">
+                ☞ 点击这里打开 <b>“智谱清言”AI</b>
+            </a>
+        </p>
+    </div>
+
+    <div class="content">
+        <p>当然，您也可以修改完善您的创意，并参加最终的创意比赛。
+            这是您之前提交的创意内容：</p>
+    </div>
+
+    {% for row in old_idea_content %}
+        {{ row }}<br>
+    {% endfor %} 
+
+    {{ formfields }}
+
+    <br><br><br>
+
+    {{ include "../my_templates/elaboration_format.html"}}
+
+    {% next_button %}
+
+{% endblock %}

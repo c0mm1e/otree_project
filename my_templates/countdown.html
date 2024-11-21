@@ -1,0 +1,60 @@
+<!-- 倒计时提示 -->
+<div class="countdown-box">
+    <p id="countdown_message">
+        本页面剩余时间 <b><span id="countdown">00:00</span></b>，请注意把握时间。倒计时结束后方可前往下一部分。
+    </p>
+    <p id="warning" style="display: none;">
+        时间已到，请尽快完成页面内容。完成后请点击“下一页”按钮前往下一部分。
+    </p>
+</div>
+<br>
+
+<!-- 提交表单 -->
+<div id="post_button" style="display: none;">
+    {{ next_button }}
+</div>
+<br><br>
+
+<style>
+    .countdown-box {
+    border: 1px solid #ffecb5; /* 设置1像素宽的边框，颜色为浅黄色 */
+    border-radius: 10px; /* 设置圆角边框，圆角半径为10px */
+    padding: 10px;
+    width: 100%; /* 使元素宽度为100%，最大化宽度 */
+    margin: 10px 0; /* 设置上下间距 */
+    color: #664d03; /* 设置文本颜色为深棕色 */
+    background-color: #fff3cd; /* 设置背景颜色为浅黄色 */
+    box-sizing: border-box; /* 确保边框和内边距不会影响宽度 */
+    }
+</style>
+
+<script>
+    let timestamp = js_vars.timestamp;
+    const countdownElement = document.getElementById('countdown');
+    const countdownMessage = document.getElementById('countdown_message');
+    const warningElement = document.getElementById('warning');
+    const nextButton = document.getElementById('post_button');
+
+    function formatTime(seconds) {
+        const minutes = Math.floor(seconds / 60);
+        const secs = seconds % 60;
+        return `${String(minutes).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+    }
+
+    function updateCountdown() {
+        // python的time.time()以秒为单位
+        // javascript的Date.now()以毫秒为单位
+        var remaining_time = timestamp - Math.floor(Date.now() / 1000);
+        if (remaining_time > 0) {
+            countdownElement.textContent = formatTime(remaining_time);
+        } else {
+            clearInterval(timer);
+            countdownMessage.style.display = "none";
+            warningElement.style.display = "block";
+            nextButton.style.display = "inline-block";
+        }
+    }
+
+    updateCountdown(); // 立即更新一次倒计时显示
+    var timer = setInterval(function(){ updateCountdown() }, 1000);
+</script>

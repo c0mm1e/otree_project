@@ -1,0 +1,14 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    预问卷 - 第 {{ current_page }} 页／共 {{ total_pages }} 页
+{% endblock %}
+
+{% block content %}
+
+    {{ formfields }}
+
+    {% next_button %}
+
+{% endblock %}

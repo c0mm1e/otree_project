@@ -1,0 +1,37 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    后续问卷 - 第 {{ current_page }} 页／共 {{ total_pages }} 页
+{% endblock %}
+
+{% block content %}
+
+    <div>
+        <p>您认为这个创意应该属于谁？</p>
+        <p></p>
+        <p>请填写一个介于-50至50之间的整数值（-50表示内容完全由你自己控制/拥有，+50表示内容完全由你的讨论（聊天）对象控制/拥有）。</p>
+        <div>
+            {{ form.post_p4_slider }}
+        </div>
+    </div>
+
+
+    <br><br><br>
+
+    <div>
+        <p>请表明您是否同意以下关于您讨论对象的陈述。</p>
+        <p></p>
+        <p>如果未来您被要求参与一个需要提出新颖且有用的解决方案或创意的项目，您有<b>多大可能选择您的讨论对象</b>作为您的合作伙伴？</p>
+        <div>
+            {{ form.post_p4_choice }}
+        </div>
+    </div>
+    
+    <br><br>
+    
+    {% next_button %}
+{% endblock %}
+
+{% block style %}
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+创新竞赛 - 创意完善
+{% endblock %}
+
+{% block content %}
+<div class="content">
+    <p>请问您在多大程度上同意以下陈述？</p>
+</div>
+
+{{ include "../my_templates/likert_table.html"}}
+
+{% next_button %}
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    预问卷 - 第 {{ current_page }} 页／共 {{ total_pages }} 页
+{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <p>请选择最符合您的实际情况的选项，没有对错之分。</p>
+    </div>
+
+    {{ include '../my_templates/likert_table.html' }}
+
+    {% next_button %}
+{% endblock %}

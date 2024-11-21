@@ -1,0 +1,14 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+补充问题 - 第 {{ current_page }} 页／共 {{ total_pages }} 页
+{% endblock %}
+
+{% block content %}
+
+    <div class="content">
+        <p>您已完成问卷的全部问题，感谢您的作答！现在您可以关闭这个页面了。</p>
+    </div>
+
+{% endblock %}

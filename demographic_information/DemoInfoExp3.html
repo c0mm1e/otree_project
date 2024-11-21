@@ -1,0 +1,18 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    补充问题 - 第 {{ current_page }} 页／共 {{ total_pages }} 页
+{% endblock %}
+
+{% block content %}
+
+    <p><b>在过去的两个星期里您使用过哪些类型的AI工具？</b></p>
+
+    <br>
+
+    {{ formfields }}
+
+    {% next_button %}
+
+{% endblock %}

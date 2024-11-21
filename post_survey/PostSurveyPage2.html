@@ -1,0 +1,17 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    后续问卷 - 第 {{ current_page }} 页／共 {{ total_pages }} 页
+{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <p>在本轮创意完善后，请问您在多大程度上同意以下关于您最终的创意的陈述？</p>
+    </div>
+
+    {{ include "../my_templates/likert_table.html"}}
+
+    {% next_button %}
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+创新竞赛 - 实验中问卷
+{% endblock %}
+
+{% block content %}
+    <div>
+        <p>您认为这个创意应该属于谁？</p>
+        <p></p>
+        <p>请填写一个介于-50至50之间的整数值（-50表示内容完全由你自己控制/拥有，+50表示内容完全由你的讨论（聊天）对象控制/拥有）。</p>
+        <div>
+            {{ form.mid_p3_slider }}
+        </div>
+    </div>
+
+    <br><br>
+
+    {% next_button %}
+{% endblock %}

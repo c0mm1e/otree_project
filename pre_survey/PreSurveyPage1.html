@@ -1,0 +1,19 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    预问卷 - 第 {{ current_page }} 页／共 {{ total_pages }} 页
+{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <p>亲爱的同学:</p>
+        <p>您好！</p>
+        <p>作答时请根据自身情况仔细填写，答案<b>不存在对错</b>，只需如实作答即可。</p>
+        <p></p>
+        <p>您有20分钟的时间完成整个预问卷，请注意把握时间。计时将在下一页开始。</p>
+    </div>
+
+    {% next_button %}
+
+{% endblock %}

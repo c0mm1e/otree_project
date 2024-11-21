@@ -1,0 +1,48 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+创新竞赛 - 头脑风暴
+{% endblock %}
+
+{% block content %}
+
+    {{ include "../my_templates/countdown.html"}}
+
+    {{ include "../my_templates/competition_intro_expert.html"}}
+
+    <div class="content">
+        <p>本次大赛的主题为“<b>设计面向20-30岁年轻群体的咖啡产品/服务</b>”，
+            参赛者被要求在30分钟内完成头脑风暴，
+            并把生成的创意按要求填写出来。
+            头脑风暴过程中，您将作为<b>人类专家</b>对参赛者提供帮助。</b></p>
+        <p>您们一共有30分钟来完成头脑风暴任务。</p>
+        <br>
+        <p><b>注意：</b></p>
+        <ol>
+            <li>如PPT所述，您将需要利用AI工具帮助您生成参赛者所需的内容。</li>
+            <li>请和参赛者进行充分交互，共同产生尽可能多并且不同的创意。</li>
+        </ol>
+    </div>
+
+    <h4><b>聊天室</b></h4>
+    {{ chat nickname=player.role }}
+    <br>
+
+    <div class="content">   
+        <p>
+            <a href="{{ai_website}}" target="_blank">
+                ☞ 点击这里打开 <b>“智谱清言”AI</b>
+            </a>
+        </p>
+    </div>
+
+    <div class="content">
+        <p>请打开智谱清言，将参赛者的问题转给AI
+            （注意提示词的运用，并限制AI回复不超过300个字）。
+            将AI的回复修改更加人性化，然后再返回给参赛者。</p>
+    </div>
+
+    {{ include "../my_templates/brainstorm_format.html"}}
+
+{% endblock %}

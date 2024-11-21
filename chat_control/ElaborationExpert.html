@@ -1,0 +1,38 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+创新竞赛 - 创意完善
+{% endblock %}
+
+{% block content %}
+
+    {{ include "../my_templates/countdown.html"}}
+
+    <h4><b>聊天室</b></h4>
+    {{ chat nickname=player.role }}
+    <br>
+
+    <div class="content">   
+        <p>
+            <a href="{{ai_website}}" target="_blank">
+                ☞ 点击这里打开 <b>“智谱清言”AI</b>
+            </a>
+        </p>
+    </div>
+
+    <div class="content">
+        <p>现在参赛者有额外的时间（30分钟）可以进一步完善准备提交的最终创意。
+            创意完善后将被提交到创新竞赛，比赛主办方将以此作为参赛者创意得分的最终依据。
+            作为专家，您在这个阶段需要辅助参赛者完善最终创意。</p>
+        <br>
+        <p>请打开智谱清言，将参赛者的问题转给AI
+            （注意提示词的运用，并限制AI回复不超过300个字）。
+            将AI的回复修改更加人性化，然后再返回给参赛者。</p>
+    </div>
+
+    <br><br><br>
+
+    {{ include "../my_templates/elaboration_format.html"}}
+
+{% endblock %}

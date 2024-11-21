@@ -1,0 +1,17 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    后续问卷 - 第 {{ current_page }} 页／共 {{ total_pages }} 页
+{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <p>总体来说，在多大程度上您的讨论对象在回应中做了以下事情？</p>
+    </div>
+
+    {{ include "../my_templates/likert_table.html"}}
+
+    {% next_button %}
+
+{% endblock %}

@@ -1,0 +1,26 @@
+<!-- 提交表单 -->
+<div id="post_button" style="display: none;">
+    {{ next_button }}
+</div>
+<br><br>
+
+<script>
+    let timestamp = js_vars.timestamp;
+    const nextButton = document.getElementById('post_button');
+
+    function updateCountdown() {
+        // python的time.time()以秒为单位
+        // javascript的Date.now()以毫秒为单位
+        var remaining_time = timestamp - Math.floor(Date.now() / 1000);
+        console.log(timestamp);
+        console.log(Date.now());
+        console.log(remaining_time);
+        if (remaining_time <= 0) {
+            clearInterval(timer);
+            nextButton.style.display = "inline-block";
+        }
+    }
+
+    updateCountdown(); // 立即更新一次倒计时显示
+    var timer = setInterval(function(){ updateCountdown() }, 1000);
+</script>

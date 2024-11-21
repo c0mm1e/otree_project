@@ -1,0 +1,19 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+创新竞赛 - 提交对话文本
+{% endblock %}
+
+{% block content %}
+
+    <div class="content">   
+        <p>在创新竞赛的最后，请复制您与AI的对话文本并粘贴到下方的文本框中，谢谢！</p>
+        <p>如果您在这一步遇到任何问题，请咨询老师和助教。</p>
+    </div>
+
+    {{ formfields }}
+
+    {% next_button %}
+
+{% endblock %}

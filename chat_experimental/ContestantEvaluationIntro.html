@@ -1,0 +1,14 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+创新竞赛 - 头脑风暴评估
+{% endblock %}
+
+{% block content %}
+
+    {{ include "../my_templates/brainstorm_evaluation_intro.html"}}
+
+    {% next_button %}
+
+{% endblock %}

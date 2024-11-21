@@ -1,0 +1,37 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+创新竞赛 - 创意完善
+{% endblock %}
+
+{% block content %}
+
+    {{ include "../my_templates/countdown.html"}}
+
+    <div class="content">   
+        <p>
+            <a href="{{ai_website}}" target="_blank">
+                ☞ 点击这里与 <b>“智谱清言”AI</b> 一起头脑风暴
+            </a>
+        </p>
+    </div>
+
+    <div class="content">
+        <p>现在您有额外的时间（30分钟）可以和讨论对象一起进一步完善您准备提交的最终创意。
+            创意完善后将被提交到创新竞赛，比赛主办方将以此作为您的创意得分的最终依据。</p>
+        <br>    
+        <p>这是您之前提交的创意内容：</p>
+    </div>
+
+    {% for row in old_idea_content %}
+        {{ row }}<br>
+    {% endfor %} 
+
+    {{ formfields }}
+
+    <br><br><br>
+
+    {{ include "../my_templates/elaboration_format.html"}}
+
+{% endblock %}
