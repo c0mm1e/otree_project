@@ -11,5 +11,4 @@ __pycache__/
 *.py[cod]
 .DS_Store
 *.otreezip
-CHANGELOG.md
-db.sqlite3
+./CHANGELOG.md
