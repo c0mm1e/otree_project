@@ -22,8 +22,6 @@ class C(BaseConstants):
     NUM_ROUNDS = 1
     BRAINSTORM_TIMEOUT_SECONDS = BRAINSTORM_TIMEOUT_SECONDS
     ELABORATION_TIMEOUT_SECONDS = ELABORATION_TIMEOUT_SECONDS
-    
-    CONTESTANT_ROLE = CONTESTANT_ROLE
 
 
 class Subsession(BaseSubsession):
@@ -277,7 +275,7 @@ if True:
         # 传递角色信息至参与人层级
         def before_next_page(player, timeout_happened=False):
             # 将当前玩家的角色保存到 participant.vars
-            player.participant.role_in_chat = player.role
+            player.participant.role_in_chat = CONTESTANT_ROLE
 
 
     class ChatExperimentalIntro2(Page):
@@ -324,7 +322,7 @@ if True:
             form_fields = BRAINSTORM_IDEA1_EVALUATION_GROUP
 
             def is_displayed(player):
-                return is_right_role_and_idea(player, C.CONTESTANT_ROLE, player.brainstorm_idea_1)
+                return is_right_role_and_idea(player, CONTESTANT_ROLE, player.brainstorm_idea_1)
             def vars_for_template(player):
                 # 动态传递 brainstorm_idea 内容到模板
                 return {
@@ -340,7 +338,7 @@ if True:
             form_fields = BRAINSTORM_IDEA2_EVALUATION_GROUP
 
             def is_displayed(player):
-                return is_right_role_and_idea(player, C.CONTESTANT_ROLE, player.brainstorm_idea_2)
+                return is_right_role_and_idea(player, CONTESTANT_ROLE, player.brainstorm_idea_2)
             def vars_for_template(player):
                 # 动态传递 brainstorm_idea 内容到模板
                 return {
@@ -356,7 +354,7 @@ if True:
             form_fields = BRAINSTORM_IDEA3_EVALUATION_GROUP
 
             def is_displayed(player):
-                return is_right_role_and_idea(player, C.CONTESTANT_ROLE, player.brainstorm_idea_3)
+                return is_right_role_and_idea(player, CONTESTANT_ROLE, player.brainstorm_idea_3)
             def vars_for_template(player):
                 # 动态传递 brainstorm_idea 内容到模板
                 return {
@@ -372,7 +370,7 @@ if True:
             form_fields = BRAINSTORM_IDEA4_EVALUATION_GROUP
 
             def is_displayed(player):
-                return is_right_role_and_idea(player, C.CONTESTANT_ROLE, player.brainstorm_idea_4)
+                return is_right_role_and_idea(player, CONTESTANT_ROLE, player.brainstorm_idea_4)
             def vars_for_template(player):
                 # 动态传递 brainstorm_idea 内容到模板
                 return {
@@ -388,7 +386,7 @@ if True:
             form_fields = BRAINSTORM_IDEA5_EVALUATION_GROUP
 
             def is_displayed(player):
-                return is_right_role_and_idea(player, C.CONTESTANT_ROLE, player.brainstorm_idea_5)
+                return is_right_role_and_idea(player, CONTESTANT_ROLE, player.brainstorm_idea_5)
             def vars_for_template(player):
                 # 动态传递 brainstorm_idea 内容到模板
                 return {
@@ -404,7 +402,7 @@ if True:
             form_fields = BRAINSTORM_IDEA6_EVALUATION_GROUP
 
             def is_displayed(player):
-                return is_right_role_and_idea(player, C.CONTESTANT_ROLE, player.brainstorm_idea_6)
+                return is_right_role_and_idea(player, CONTESTANT_ROLE, player.brainstorm_idea_6)
             def vars_for_template(player):
                 # 动态传递 brainstorm_idea 内容到模板
                 return {
@@ -420,7 +418,7 @@ if True:
             form_fields = BRAINSTORM_IDEA7_EVALUATION_GROUP
 
             def is_displayed(player):
-                return is_right_role_and_idea(player, C.CONTESTANT_ROLE, player.brainstorm_idea_7)
+                return is_right_role_and_idea(player, CONTESTANT_ROLE, player.brainstorm_idea_7)
             def vars_for_template(player):
                 # 动态传递 brainstorm_idea 内容到模板
                 return {
@@ -436,7 +434,7 @@ if True:
             form_fields = BRAINSTORM_IDEA8_EVALUATION_GROUP
 
             def is_displayed(player):
-                return is_right_role_and_idea(player, C.CONTESTANT_ROLE, player.brainstorm_idea_8)
+                return is_right_role_and_idea(player, CONTESTANT_ROLE, player.brainstorm_idea_8)
             def vars_for_template(player):
                 # 动态传递 brainstorm_idea 内容到模板
                 return {
@@ -452,7 +450,7 @@ if True:
             form_fields = BRAINSTORM_IDEA9_EVALUATION_GROUP
 
             def is_displayed(player):
-                return is_right_role_and_idea(player, C.CONTESTANT_ROLE, player.brainstorm_idea_9)
+                return is_right_role_and_idea(player, CONTESTANT_ROLE, player.brainstorm_idea_9)
             def vars_for_template(player):
                 # 动态传递 brainstorm_idea 内容到模板
                 return {
@@ -468,7 +466,7 @@ if True:
             form_fields = BRAINSTORM_IDEA10_EVALUATION_GROUP
 
             def is_displayed(player):
-                return is_right_role_and_idea(player, C.CONTESTANT_ROLE, player.brainstorm_idea_10)
+                return is_right_role_and_idea(player, CONTESTANT_ROLE, player.brainstorm_idea_10)
             def vars_for_template(player):
                 # 动态传递 brainstorm_idea 内容到模板
                 return {
@@ -484,7 +482,7 @@ if True:
             form_fields = BRAINSTORM_IDEA11_EVALUATION_GROUP
 
             def is_displayed(player):
-                return is_right_role_and_idea(player, C.CONTESTANT_ROLE, player.brainstorm_idea_11)
+                return is_right_role_and_idea(player, CONTESTANT_ROLE, player.brainstorm_idea_11)
             def vars_for_template(player):
                 # 动态传递 brainstorm_idea 内容到模板
                 return {
@@ -500,7 +498,7 @@ if True:
             form_fields = BRAINSTORM_IDEA12_EVALUATION_GROUP
 
             def is_displayed(player):
-                return is_right_role_and_idea(player, C.CONTESTANT_ROLE, player.brainstorm_idea_12)
+                return is_right_role_and_idea(player, CONTESTANT_ROLE, player.brainstorm_idea_12)
             def vars_for_template(player):
                 # 动态传递 brainstorm_idea 内容到模板
                 return {
@@ -516,7 +514,7 @@ if True:
             form_fields = BRAINSTORM_IDEA13_EVALUATION_GROUP
 
             def is_displayed(player):
-                return is_right_role_and_idea(player, C.CONTESTANT_ROLE, player.brainstorm_idea_13)
+                return is_right_role_and_idea(player, CONTESTANT_ROLE, player.brainstorm_idea_13)
             def vars_for_template(player):
                 # 动态传递 brainstorm_idea 内容到模板
                 return {
@@ -532,7 +530,7 @@ if True:
             form_fields = BRAINSTORM_IDEA14_EVALUATION_GROUP
 
             def is_displayed(player):
-                return is_right_role_and_idea(player, C.CONTESTANT_ROLE, player.brainstorm_idea_14)
+                return is_right_role_and_idea(player, CONTESTANT_ROLE, player.brainstorm_idea_14)
             def vars_for_template(player):
                 # 动态传递 brainstorm_idea 内容到模板
                 return {
@@ -548,7 +546,7 @@ if True:
             form_fields = BRAINSTORM_IDEA15_EVALUATION_GROUP
 
             def is_displayed(player):
-                return is_right_role_and_idea(player, C.CONTESTANT_ROLE, player.brainstorm_idea_15)
+                return is_right_role_and_idea(player, CONTESTANT_ROLE, player.brainstorm_idea_15)
             def vars_for_template(player):
                 # 动态传递 brainstorm_idea 内容到模板
                 return {
@@ -564,7 +562,7 @@ if True:
             form_fields = BRAINSTORM_IDEA16_EVALUATION_GROUP
 
             def is_displayed(player):
-                return is_right_role_and_idea(player, C.CONTESTANT_ROLE, player.brainstorm_idea_16)
+                return is_right_role_and_idea(player, CONTESTANT_ROLE, player.brainstorm_idea_16)
             def vars_for_template(player):
                 # 动态传递 brainstorm_idea 内容到模板
                 return {
@@ -580,7 +578,7 @@ if True:
             form_fields = BRAINSTORM_IDEA17_EVALUATION_GROUP
 
             def is_displayed(player):
-                return is_right_role_and_idea(player, C.CONTESTANT_ROLE, player.brainstorm_idea_17)
+                return is_right_role_and_idea(player, CONTESTANT_ROLE, player.brainstorm_idea_17)
             def vars_for_template(player):
                 # 动态传递 brainstorm_idea 内容到模板
                 return {
@@ -596,7 +594,7 @@ if True:
             form_fields = BRAINSTORM_IDEA18_EVALUATION_GROUP
 
             def is_displayed(player):
-                return is_right_role_and_idea(player, C.CONTESTANT_ROLE, player.brainstorm_idea_18)
+                return is_right_role_and_idea(player, CONTESTANT_ROLE, player.brainstorm_idea_18)
             def vars_for_template(player):
                 # 动态传递 brainstorm_idea 内容到模板
                 return {
@@ -612,7 +610,7 @@ if True:
             form_fields = BRAINSTORM_IDEA19_EVALUATION_GROUP
 
             def is_displayed(player):
-                return is_right_role_and_idea(player, C.CONTESTANT_ROLE, player.brainstorm_idea_19)
+                return is_right_role_and_idea(player, CONTESTANT_ROLE, player.brainstorm_idea_19)
             def vars_for_template(player):
                 # 动态传递 brainstorm_idea 内容到模板
                 return {
@@ -628,7 +626,7 @@ if True:
             form_fields = BRAINSTORM_IDEA20_EVALUATION_GROUP
 
             def is_displayed(player):
-                return is_right_role_and_idea(player, C.CONTESTANT_ROLE, player.brainstorm_idea_20)
+                return is_right_role_and_idea(player, CONTESTANT_ROLE, player.brainstorm_idea_20)
             def vars_for_template(player):
                 # 动态传递 brainstorm_idea 内容到模板
                 return {

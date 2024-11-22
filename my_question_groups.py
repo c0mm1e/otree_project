@@ -196,14 +196,6 @@ QUESTION_GROUP_AI_Question3 = [
     'demo_ai_q3',
 ] # Only displayed while Question1 got answer 'Yes'
 
-QUESTION_GROUP_PersonalInfo = [
-    'name_2', 
-    'student_id_2', 
-    'gender_2', 
-    'age_2', 
-    'grade_2',
-]
-
 
 
 

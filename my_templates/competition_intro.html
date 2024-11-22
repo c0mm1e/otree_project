@@ -8,9 +8,9 @@
     <br><br>
 
     <p>您在本次研究被分配到的角色是：<b>
-        {% if player.role == "专家" %}
+        {% if player.participant.role_in_chat == "专家" %}
             角色2
-        {% elif player.role == "参赛者" %}
+        {% elif player.participant.role_in_chat == "参赛者" %}
             角色1
         {% else %}
             未知角色

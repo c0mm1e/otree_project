@@ -94,28 +94,9 @@ class Player(BasePlayer):
             ],
             widget=widgets.RadioSelect, 
             label='在过去的两个星期里您使用这些AI工具的频率如何？'
-        )              
-
-        # demographic information page5
-        name_2 = models.StringField(
-            label='您的姓名',
         )
-        student_id_2 = models.StringField(
-            label='您的学号',
-        )
-        gender_2 = models.StringField(
-            choices=GENDER_GROUP, 
-            label='您的性别',
-        )
-        age_2 = models.IntegerField(
-            min=16, 
-            max=100, 
-            label='您的年龄',
-        )
-        grade_2 = models.IntegerField(
-            choices=GRADE_GROUP, 
-            label='您的年级',
-        )
+        
+        
 
 # PAGES
 if True:
@@ -123,9 +104,7 @@ if True:
         form_model = 'player'
         form_fields = QUESTION_GROUP_DemoInfoContestant
         
-        @staticmethod
-        def is_displayed(player):
-            return player.participant.role_in_chat == CONTESTANT_ROLE    
+        is_displayed = is_contestant
             
         def vars_for_template(player):
             return vars_for_page_index(page_sequence, DemoInfoExp1Contestant, 0, -1)
@@ -135,9 +114,7 @@ if True:
         form_model = 'player'
         form_fields = QUESTION_GROUP_DemoInfoExpert
 
-        @staticmethod
-        def is_displayed(player):
-            return player.participant.role_in_chat == EXPERT_ROLE     
+        is_displayed = is_expert   
 
         def vars_for_template(player):
             return vars_for_page_index(page_sequence, DemoInfoExp1Expert, -1, -1)
@@ -187,23 +164,6 @@ if True:
             return vars_for_page_index(page_sequence, DemoInfoExp4, -1, -1)
 
 
-    class DemoInfoExp5(Page):
-        form_model = 'player'
-        form_fields = QUESTION_GROUP_PersonalInfo
-
-        @staticmethod
-        def error_message(player, values):
-            error_messages = dict()
-            if not is_valid_name(values['name_2']):
-                error_messages['name_2'] = '请输入正确的姓名。'
-            elif not values['student_id_2'].isdigit():
-                error_messages['student_id_2'] = '学号应仅包含数字。'
-            return error_messages
-
-        def vars_for_template(player):
-            return vars_for_page_index(page_sequence, DemoInfoExp5, -1, -1)
-
-
     class Fin(Page):
         def vars_for_template(player):
             return vars_for_page_index(page_sequence, Fin, -1, -1)
@@ -215,7 +175,6 @@ page_sequence = [
     DemoInfoExp1Expert, 
     DemoInfoExp2, 
     DemoInfoExp3,
-    DemoInfoExp4, 
-    DemoInfoExp5, 
+    DemoInfoExp4,
     Fin,
 ]

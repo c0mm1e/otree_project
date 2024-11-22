@@ -139,10 +139,10 @@ def get_likert_answer(get_context_data_method, **kwargs):
 # 身份相关的is_displayed包装
 # 仅限参赛者阅览的页面
 def is_contestant(player):
-    return player.role == CONTESTANT_ROLE
+    return player.participant.role_in_chat == CONTESTANT_ROLE
 # 仅限专家阅览的页面
 def is_expert(player):
-    return player.role == EXPERT_ROLE
+    return player.participant.role_in_chat == EXPERT_ROLE
 # 仅限某种特定角色填空后阅览的页面
 def is_right_role_and_idea(player, role, idea):
-    return player.role == role and idea.strip() not in ['', None]
+    return player.participant.role_in_chat == role and idea.strip() not in ['', None]
