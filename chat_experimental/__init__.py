@@ -4,6 +4,7 @@ import re
 import time
 import sys 
 sys.path.append("..") 
+from my_constants import *
 from my_functions import *
 from my_question_groups import *
 
@@ -20,8 +21,6 @@ class C(BaseConstants):
     NAME_IN_URL = 'chat_experimental'
     PLAYERS_PER_GROUP = None
     NUM_ROUNDS = 1
-    BRAINSTORM_TIMEOUT_SECONDS = BRAINSTORM_TIMEOUT_SECONDS
-    ELABORATION_TIMEOUT_SECONDS = ELABORATION_TIMEOUT_SECONDS
 
 
 class Subsession(BaseSubsession):
@@ -284,7 +283,7 @@ if True:
         @staticmethod
         def js_vars(player):
             return{
-                'timestamp': int(time.time() + HIDE_NEXT_BUTTON_SECONDS),
+                'timestamp': int(time.time() + player.session.config['HIDE_NEXT_BUTTON_SECONDS']),
             }
 
 
@@ -304,7 +303,7 @@ if True:
         @staticmethod
         def js_vars(player):
             return{
-                'timestamp': int(time.time() + BRAINSTORM_TIMEOUT_SECONDS),
+                'timestamp': int(time.time() + player.session.config['BRAINSTORM_TIMEOUT_SECONDS']),
             }
             
 
@@ -750,7 +749,7 @@ if True:
         @staticmethod
         def js_vars(player):
             return{
-                'timestamp': int(time.time() + ELABORATION_TIMEOUT_SECONDS),
+                'timestamp': int(time.time() + player.session.config['ELABORATION_TIMEOUT_SECONDS']),
             }
 
 

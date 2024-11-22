@@ -4,6 +4,7 @@ import re
 import time
 import sys 
 sys.path.append("..") 
+from my_constants import *
 from my_functions import *
 from my_question_groups import *
 
@@ -153,7 +154,8 @@ if True:
         def before_next_page(player, timeout_happened):
             participant = player.participant
             import time
-            participant.expiry = time.time() + PRE_SURVEY_TIMEOUT_SECONDS
+            # participant.expiry = time.time() + PRE_SURVEY_TIMEOUT_SECONDS
+            participant.expiry = time.time() + player.session.config['PRE_SURVEY_TIMEOUT_SECONDS']
             
         def vars_for_template(player):
             return vars_for_page_index(page_sequence, PreSurveyPage1)
