@@ -33,6 +33,8 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
+    # 前测限时
+    expiry_pre = models.FloatField(initial=float('inf'))
     # question list
     if True:
         # pre_survey page3
@@ -152,10 +154,8 @@ if True:
         # 加入pre survey的20分钟限时
         @staticmethod
         def before_next_page(player, timeout_happened):
-            participant = player.participant
-            import time
-            # participant.expiry = time.time() + PRE_SURVEY_TIMEOUT_SECONDS
-            participant.expiry = time.time() + player.session.config['PRE_SURVEY_TIMEOUT_SECONDS']
+            new_expiry = time.time() + player.session.config['PRE_SURVEY_TIMEOUT_SECONDS']
+            player.expiry_pre = min(new_expiry, player.expiry_pre)
             
         def vars_for_template(player):
             return vars_for_page_index(page_sequence, PreSurveyPage1)

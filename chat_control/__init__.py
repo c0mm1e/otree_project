@@ -33,20 +33,24 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
+    # 三个隐藏下一页按钮的计时
+    expiry_intro = models.FloatField(initial=float('inf'))
+    expiry_brainstorm = models.FloatField(initial=float('inf'))
+    expiry_elaboration = models.FloatField(initial=float('inf'))
     # question list
     if True:
         # 20 brainstorm ideas
         # The first 10 are required
         brainstorm_idea_1 = make_field_longstring(False, idea_text(1))
-        brainstorm_idea_2 = make_field_longstring(True, idea_text(2))
-        brainstorm_idea_3 = make_field_longstring(True, idea_text(3))
-        brainstorm_idea_4 = make_field_longstring(True, idea_text(4))
-        brainstorm_idea_5 = make_field_longstring(True, idea_text(5))
-        brainstorm_idea_6 = make_field_longstring(True, idea_text(6))
-        brainstorm_idea_7 = make_field_longstring(True, idea_text(7))
-        brainstorm_idea_8 = make_field_longstring(True, idea_text(8))
-        brainstorm_idea_9 = make_field_longstring(True, idea_text(9))
-        brainstorm_idea_10 = make_field_longstring(True, idea_text(10))
+        brainstorm_idea_2 = make_field_longstring(False, idea_text(2))
+        brainstorm_idea_3 = make_field_longstring(False, idea_text(3))
+        brainstorm_idea_4 = make_field_longstring(False, idea_text(4))
+        brainstorm_idea_5 = make_field_longstring(False, idea_text(5))
+        brainstorm_idea_6 = make_field_longstring(False, idea_text(6))
+        brainstorm_idea_7 = make_field_longstring(False, idea_text(7))
+        brainstorm_idea_8 = make_field_longstring(False, idea_text(8))
+        brainstorm_idea_9 = make_field_longstring(False, idea_text(9))
+        brainstorm_idea_10 = make_field_longstring(False, idea_text(10))
         # The last 10 are optional
         brainstorm_idea_11 = make_field_longstring(True, idea_text(11))
         brainstorm_idea_12 = make_field_longstring(True, idea_text(12))
@@ -312,8 +316,10 @@ if True:
         # 一段时间后再显示下一页按钮
         @staticmethod
         def js_vars(player):
+            new_expiry = time.time() + player.session.config['HIDE_NEXT_BUTTON_SECONDS']
+            player.expiry_intro = min(new_expiry, player.expiry_intro)
             return{
-                'timestamp': int(time.time() + player.session.config['HIDE_NEXT_BUTTON_SECONDS']),
+                'timestamp': player.expiry_intro,
             }
 
 
@@ -326,8 +332,10 @@ if True:
         
         @staticmethod
         def js_vars(player):
+            new_expiry = time.time() + player.session.config['BRAINSTORM_TIMEOUT_SECONDS']
+            player.expiry_brainstorm = min(new_expiry, player.expiry_brainstorm)
             return{
-                'timestamp': int(time.time() + player.session.config['BRAINSTORM_TIMEOUT_SECONDS']),
+                'timestamp': player.expiry_brainstorm,
             }
 
 
@@ -342,8 +350,10 @@ if True:
             }
         @staticmethod
         def js_vars(player):
+            new_expiry = time.time() + player.session.config['BRAINSTORM_TIMEOUT_SECONDS']
+            player.expiry_brainstorm = min(new_expiry, player.expiry_brainstorm)
             return{
-                'timestamp': int(time.time() + player.session.config['BRAINSTORM_TIMEOUT_SECONDS']),
+                'timestamp': player.expiry_brainstorm,
             }
 
 
@@ -815,8 +825,10 @@ if True:
             }
         @staticmethod
         def js_vars(player):
+            new_expiry = time.time() + player.session.config['ELABORATION_TIMEOUT_SECONDS']
+            player.expiry_elaboration = min(new_expiry, player.expiry_elaboration)
             return{
-                'timestamp': int(time.time() + player.session.config['ELABORATION_TIMEOUT_SECONDS']),
+                'timestamp': player.expiry_elaboration,
             }
 
 
@@ -831,8 +843,10 @@ if True:
             }
         @staticmethod
         def js_vars(player):
+            new_expiry = time.time() + player.session.config['ELABORATION_TIMEOUT_SECONDS']
+            player.expiry_elaboration = min(new_expiry, player.expiry_elaboration)
             return{
-                'timestamp': int(time.time() + player.session.config['ELABORATION_TIMEOUT_SECONDS']),
+                'timestamp': player.expiry_elaboration,
             }
             
 

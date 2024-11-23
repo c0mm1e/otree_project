@@ -77,19 +77,19 @@ ROOM = ROOMS = [
         name='room1',
         display_name='实验房间1 周三',
         participant_label_file=
-            'participant_label/participant_label_1.txt',
+            'participant_label/participant_label.txt',
     ),
     dict(
         name='room2',
         display_name='实验房间2 周四',
         participant_label_file=
-            'participant_label/participant_label_2.txt',
+            'participant_label/participant_label.txt',
     ),
     dict(
         name='room3',
         display_name='实验房间3 周五',
         participant_label_file=
-            'participant_label/participant_label_3.txt',
+            'participant_label/participant_label.txt',
     ),
 ]
 
@@ -100,11 +100,12 @@ ROOM = ROOMS = [
 # e.g. self.session.config['participation_fee']
 
 SESSION_CONFIG_DEFAULTS = dict(
-    real_world_currency_per_point=1.00, participation_fee=0.00, doc=""
+    real_world_currency_per_point=1.00, 
+    participation_fee=0.00, 
+    doc="oTree框架自带，与本实验无关",
 )
 
 PARTICIPANT_FIELDS = [
-    'expiry', # 前测限时
     'role_in_chat', # 参与人层级的角色变量
 ]
 

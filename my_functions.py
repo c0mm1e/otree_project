@@ -111,8 +111,7 @@ pass
 # 检查整个pre survey是否超时
 pre_remained_text = '完成预问卷的总剩余时间为：'
 def get_timeout_seconds(player):
-    participant = player.participant
-    return participant.expiry - time.time()
+    return player.expiry_pre - time.time()
 def is_overtime(player):
     return get_timeout_seconds(player) > 3
 
