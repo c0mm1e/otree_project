@@ -6,7 +6,7 @@ from my_constants import *
 SESSION_CONFIGS = [
     dict(
         name = 'control_group',
-        display_name = '实验1',
+        display_name = '对照组（周四、周五）',
         app_sequence = ['pre_survey', 'chat_control', 'post_survey', 'demographic_information'],
         num_demo_participants = 6,
         PRE_SURVEY_TIMEOUT_SECONDS = PRE_SURVEY_TIMEOUT_SECONDS,
@@ -22,7 +22,7 @@ SESSION_CONFIGS = [
     ), 
     dict(
         name = 'experimental_group',
-        display_name = '实验2',
+        display_name = '实验组（周三）',
         app_sequence = ['pre_survey', 'chat_experimental', 'post_survey', 'demographic_information'],
         num_demo_participants = 6,
         PRE_SURVEY_TIMEOUT_SECONDS = PRE_SURVEY_TIMEOUT_SECONDS,
@@ -37,10 +37,10 @@ SESSION_CONFIGS = [
         ''', 
     ),
     dict(
-        name = 'test1', 
-        display_name = '测试1 chat control',
-        app_sequence = ['chat_control'],
-        num_demo_participants = 6,  
+        name = 'experimental_group',
+        display_name = '实验组（不含前测，供对照组未分组者使用）',
+        app_sequence = ['chat_experimental', 'post_survey', 'demographic_information'],
+        num_demo_participants = 6,
         PRE_SURVEY_TIMEOUT_SECONDS = PRE_SURVEY_TIMEOUT_SECONDS,
         HIDE_NEXT_BUTTON_SECONDS = HIDE_NEXT_BUTTON_SECONDS,
         BRAINSTORM_TIMEOUT_SECONDS = BRAINSTORM_TIMEOUT_SECONDS,
@@ -50,26 +50,8 @@ SESSION_CONFIGS = [
             HIDE_NEXT_BUTTON_SECONDS：实验导言部分隐藏下一页按钮时间\n
             BRAINSTORM_TIMEOUT_SECONDS：第一次聊天时间\n
             ELABORATION_TIMEOUT_SECONDS：第二次聊天时间\n
-        ''',       
+        ''', 
     ),
-    dict(
-        name = 'test1_1', 
-        display_name = '测试pre',
-        app_sequence = ['pre_survey'],
-        num_demo_participants = 6,        
-    ),
-    dict(
-        name = 'test2', 
-        display_name = '测试2chat exp',
-        app_sequence = ['chat_experimental'],
-        num_demo_participants = 6,        
-    ),
-    dict(
-        name = 'test3', 
-        display_name = '测试post',
-        app_sequence = ['chat_experimental', 'post_survey', 'demographic_information'],
-        num_demo_participants = 6,        
-    ), 
 ]
 
 ROOM = ROOMS = [

@@ -7,13 +7,13 @@
 
     <br><br>
 
-    <p>您在本次研究被分配到的角色是：<b>
+    <p>您在本次研究被分配到的小组是：<b>
         {% if player.participant.role_in_chat == "专家" %}
-            角色2
+            小组2
         {% elif player.participant.role_in_chat == "参赛者" %}
-            角色1
+            小组1
         {% else %}
-            未知角色
+            未知组
         {% endif %}
     </b>。</p>
 
