@@ -37,7 +37,7 @@ SESSION_CONFIGS = [
         ''', 
     ),
     dict(
-        name = 'experimental_group',
+        name = 'experimental_group_2',
         display_name = '实验组（不含前测，供对照组未分组者使用）',
         app_sequence = ['chat_experimental', 'post_survey', 'demographic_information'],
         num_demo_participants = 6,
