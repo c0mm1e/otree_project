@@ -682,7 +682,9 @@ if True:
         is_displayed = is_contestant
         
         def vars_for_template(player):
-            index = player.idea_choose_best   
+            index = player.idea_choose_best
+            # only for debug
+            if index == 0: index = 1
             idea_content = getattr(player, f'brainstorm_idea_{index}').split('\n')
             return {
                 'index': index,

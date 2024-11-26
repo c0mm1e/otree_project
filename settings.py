@@ -52,6 +52,22 @@ SESSION_CONFIGS = [
             ELABORATION_TIMEOUT_SECONDS：第二次聊天时间\n
         ''', 
     ),
+    dict(
+        name = 'demo_info',
+        display_name = '测试demo_info',
+        app_sequence = ['demographic_information'],
+        num_demo_participants = 6,
+        PRE_SURVEY_TIMEOUT_SECONDS = PRE_SURVEY_TIMEOUT_SECONDS,
+        HIDE_NEXT_BUTTON_SECONDS = HIDE_NEXT_BUTTON_SECONDS,
+        BRAINSTORM_TIMEOUT_SECONDS = BRAINSTORM_TIMEOUT_SECONDS,
+        ELABORATION_TIMEOUT_SECONDS = ELABORATION_TIMEOUT_SECONDS,
+        doc = '''
+            PRE_SURVEY_TIMEOUT_SECONDS：前测总限时\n
+            HIDE_NEXT_BUTTON_SECONDS：实验导言部分隐藏下一页按钮时间\n
+            BRAINSTORM_TIMEOUT_SECONDS：第一次聊天时间\n
+            ELABORATION_TIMEOUT_SECONDS：第二次聊天时间\n
+        ''',         
+    )
 ]
 
 ROOM = ROOMS = [

@@ -183,7 +183,10 @@ QUESTION_GROUP_AI_Question3 = [
     'demo_ai_q3',
 ] # Only displayed while Question1 got answer 'Yes'
 
-
+QUESTION_GROUP_DemoInfo5 = [
+    'demo_p5_q1',
+    'demo_p5_q2',
+] # final update 
 
 
 

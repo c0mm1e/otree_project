@@ -97,6 +97,10 @@ class Player(BasePlayer):
             label='在过去的两个星期里您使用这些AI工具的频率如何？'
         )
         
+        # demographic information page5
+        demo_p5_q1 = make_field_likert('我愿意让他人接手并进一步发展我的初步想法。')
+        demo_p5_q2 = make_field_likert('我相信他人在处理我的想法时能够使其变得更好。')
+        
         
 
 # PAGES
@@ -165,6 +169,17 @@ if True:
             return vars_for_page_index(page_sequence, DemoInfoExp4, -1, -1)
 
 
+    class DemoInfoExp5(Page):
+        form_model = 'player'
+        form_fields = QUESTION_GROUP_DemoInfo5
+        
+        def get_context_data(self, **kwargs):
+            return get_likert_answer(super().get_context_data, **kwargs)
+
+        def vars_for_template(player):
+            return vars_for_page_index(page_sequence, DemoInfoExp5, -1, -1)
+
+
     class Fin(Page):
         def vars_for_template(player):
             return vars_for_page_index(page_sequence, Fin, -1, -1)
@@ -177,5 +192,6 @@ page_sequence = [
     DemoInfoExp2, 
     DemoInfoExp3,
     DemoInfoExp4,
+    DemoInfoExp5,
     Fin,
 ]

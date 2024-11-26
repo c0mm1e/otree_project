@@ -1,0 +1,21 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    补充问题 - 第 {{ current_page }} 页／共 {{ total_pages }} 页
+{% endblock %}
+
+{% block content %}
+
+    <div class="content">
+        <p>请根据您的真实感受，
+            判断您在本次创新比赛任务后，
+            将自己的想法交给他人处理的意愿程度，
+            并选择最符合您意见的选项。</p>
+    </div>
+
+    {{ include '../my_templates/likert_table.html' }}
+
+    {% next_button %}
+
+{% endblock %}
